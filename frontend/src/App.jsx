@@ -18,10 +18,11 @@ function App() {
       setGreeting(res.data.message);
     } catch (err) {
       console.error(err);
-      if (err.response) {
-        setError(`Server responded with status ${err.response.status}: ${err.response.statusText}`);
-      } else if (err.request) {
-        setError('No response received. Is the backend running?');
+      // if (err.response) {
+      //   setError(`Server responded with status ${err.response.status}: ${err.response.statusText}`);
+      // } else 
+      if (err.request) {
+        setError('Ops no response received. Is the backend running?');
       } else {
         setError('Error: ' + err.message);
       }
@@ -29,23 +30,25 @@ function App() {
   };
 
   return (
-    <div className="card">
-      
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-        <h1 className="text-2xl font-bold mb-4">React + Python App</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <input
-            className="inputboxes"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter your name"
-          />
-          <input className="inputboxes" type='text' value={sport} placeholder='Enter Favorite Sport' onChange={(e)=>setSport(e.target.value)}/>
-          <br/><button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Greet</button>
-        </form>
-        {greeting && <p className="mt-4 text-lg text-green-700">{greeting}</p>}
-        {error && <p className="mt-4 text-lg text-red-600">{error}</p>}
+    <div className="container">
+      <div className="card">
+        <div className="form-container min-h-screen flex flex-col items-center justify-center bg-gray-100">
+          <h1 className="text-2xl font-bold mb-4">React + Python App</h1>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <input
+              className="inputboxes"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+            />
+            <input className="inputboxes" type='text' value={sport} placeholder='Enter Favorite Sport' onChange={(e)=>setSport(e.target.value)}/>
+            <br/><button className="submit-btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Greet</button>
+          </form>
+          {greeting==='' && <p className="mt-4 text-lg text-green-700">Welcome!</p>}
+          {greeting && <p className="mt-4 text-lg text-green-700">{greeting}</p>}
+          {error && <p className="mt-4 text-lg text-red-600">{error}</p>}
+        </div>
       </div>
     </div>
   );

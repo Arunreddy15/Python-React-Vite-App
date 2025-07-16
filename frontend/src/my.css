@@ -1,7 +1,39 @@
-*{
-    margin: 0;
-    padding: 0;
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 .inputboxes{
-    margin: 0 5px;
+    margin: 5px ;
+    font-family: 'Poppins';
+    text-align: center;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+.flex{
+    display: flex;
+    padding: 8px;
+    justify-content: space-around;
+}
+.submit-btn{
+    align-items: center;
+    margin: 5px;
+    padding:5px 20px;
+}
+.submit-btn:hover{
+    color: aqua;
+    border: solid 1px aqua;
+}
+.card{
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
 }
